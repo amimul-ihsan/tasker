@@ -1,16 +1,84 @@
-# React + Vite
+# Tasker 📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Tasker** is a minimal, responsive task manager built with **React**, **Vite**, and **Tailwind CSS**. It supports adding, editing, deleting, tagging, favoriting tasks and includes a simple search flow.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- Add / Edit / Delete tasks
+- Assign colored tags to tasks
+- Favorite and complete tasks
+- Modal-based task creation/editing
+- Instant search by title and tags
+- Tailwind utility classes for quick UI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Built with
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19
+- Vite
+- Tailwind CSS
+- lucide-react (icons)
+
+---
+
+## Getting started
+
+Prerequisites:
+
+- Node.js 18+ (or LTS)
+
+Install and run locally:
+
+```bash
+npm install
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## Usage
+
+- Click **ADD TASK** to open the task modal and create a new task.
+- Use the **search** field in the navbar to find tasks by title or tag.
+- Click the star to favorite, and buttons on each task to edit/delete/complete.
+
+---
+
+## Project structure (key files)
+
+- `src/` – application source
+  - `main.jsx` – app bootstrap
+  - `Tasker.jsx` – main app + state & handlers
+  - `components/` – React components (`Task`, `Tasks`, `TaskModal`, `Navbar`, `Modal`, etc.)
+  - `store/store.js` – initial tasks data
+  - `styles/index.css` – Tailwind + custom utilities
+  - `utils/` – helpers (`randomColor`, color maps)
+
+---
+
+## Notes & tips
+
+- Search is implemented client-side; clearing the search field shows all tasks by design (filtered view is derived at render time).
+- The project uses a small custom utility for hiding scrollbars (`.no-scrollbar`) in CSS.
+
+---
+
+## Contributing
+
+Contributions are welcome — open an issue or submit a PR. Please follow the existing code style and run linter/tests before pushing.
+
+---
+
+## License
+
+MIT — see LICENSE (or add one)
