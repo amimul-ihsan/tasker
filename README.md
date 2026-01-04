@@ -1,72 +1,99 @@
 # Tasker 📝
 
-**Tasker** is a minimal, responsive task manager built with **React**, **Vite**, and **Tailwind CSS**. It supports adding, editing, deleting, tagging, favoriting tasks and includes a simple search flow.
+**Tasker** is a small React + Vite task management demo app with Tailwind CSS. This branch (`usestate-only`) focuses on local state management using `useState` (no global store). ✅
 
 ---
 
-## 🚀 Features
+## Quick Links
 
-- Add / Edit / Delete tasks
-- Assign colored tags to tasks
-- Favorite and complete tasks
-- Modal-based task creation/editing
-- Instant search by title and tags
-- Tailwind utility classes for quick UI
+- Run (dev): `npm run dev`
+- Build: `npm run build`
+- Preview build: `npm run preview`
+- Lint: `npm run lint`
 
 ---
 
-## 🛠️ Built with
+## Features ✨
 
-- React 19
-- Vite
-- Tailwind CSS
-- lucide-react (icons)
+- Create and manage tasks
+- Tags and colors for tasks
+- Modal UI for creating/editing tasks
+- Minimal, component-driven structure for easy learning and extension
 
 ---
 
-## Getting started
+## Requirements
 
-Prerequisites:
+- Node.js >= 16
+- npm (or pnpm/yarn) installed
 
-- Node.js 18+ (or LTS)
+---
 
-Install and run locally:
+## Setup (local)
+
+1. Clone the repo and checkout the branch:
+
+```bash
+git clone <repo-url>
+cd tasker
+git checkout usestate-only
+```
+
+2. Install dependencies and run dev server:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Build for production:
+Open http://localhost:5173 in your browser.
+
+---
+
+## Project Structure 🔧
+
+- `index.html` — entry page
+- `src/main.jsx` — app entry
+- `src/Tasker.jsx` — top-level app component
+- `src/components/` — presentational and UI components:
+  - `Button.jsx`, `Modal.jsx`, `Navbar.jsx`, `Tags.jsx`, `Task.jsx`, `TaskModal.jsx`, `Tasks.jsx`, `TasksArea.jsx`
+- `src/store/` — (kept for reference) `store.js` — this branch emphasizes component-local `useState` rather than a global store
+- `src/styles/` — Tailwind / CSS
+- `src/utils/` — helpers like `Colors.js`, `randomColor.js`
+
+---
+
+## Branch notes — `usestate-only` ⚠️
+
+This branch intentionally simplifies state handling by using `useState` in components rather than relying on a central store. It's useful for learning or when global state management is not required.
+
+If you plan to migrate back to a global store later, keep `src/store/store.js` as a reference.
+
+---
+
+## Linting & Formatting
+
+- ESLint is configured. Run:
 
 ```bash
-npm run build
-npm run preview
+npm run lint
 ```
 
----
-
-## Usage
-
-- Click **ADD TASK** to open the task modal and create a new task.
-- Use the **search** field in the navbar to find tasks by title or tag.
-- Click the star to favorite, and buttons on each task to edit/delete/complete.
+(Adjust or add Prettier if desired.)
 
 ---
 
-## Project structure (key files)
+## Contributing 🤝
 
-- `src/` – application source
-  - `main.jsx` – app bootstrap
-  - `Tasker.jsx` – main app + state & handlers
-  - `components/` – React components (`Task`, `Tasks`, `TaskModal`, `Navbar`, `Modal`, etc.)
-  - `store/store.js` – initial tasks data
-  - `styles/index.css` – Tailwind + custom utilities
-  - `utils/` – helpers (`randomColor`, color maps)
+- Open issues for bugs or feature requests
+- Send PRs to the `usestate-only` branch if they align with the branch goal (keeping state local)
 
 ---
 
-## Notes & tips
+## License
 
-- Search is implemented client-side; clearing the search field shows all tasks by design (filtered view is derived at render time).
-- The project uses a small custom utility for hiding scrollbars (`.no-scrollbar`) in CSS.
+This repository does not include a license file by default. If you'd like to license the project, add a `LICENSE` file (e.g., MIT).
+
+---
+
+If you'd like, I can also: add example screenshots, add more detailed docs for components, or create a sample dataset script. 💡
