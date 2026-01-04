@@ -80,20 +80,3 @@ npm run lint
 ```
 
 (Adjust or add Prettier if desired.)
-
----
-
-## Contributing 🤝
-
-- Open issues for bugs or feature requests
-- Send PRs to the `usestate-only` branch if they align with the branch goal (keeping state local)
-
----
-
-## License
-
-This repository does not include a license file by default. If you'd like to license the project, add a `LICENSE` file (e.g., MIT).
-
----
-
-If you'd like, I can also: add example screenshots, add more detailed docs for components, or create a sample dataset script. 💡
