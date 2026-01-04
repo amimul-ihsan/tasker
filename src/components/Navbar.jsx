@@ -1,6 +1,9 @@
 import { Search } from "lucide-react";
+import { useTaskHandlers } from "../contexts/taskContext";
 
-export default function Navbar({ onSearch }) {
+export default function Navbar() {
+  const { onSearch } = useTaskHandlers();
+
   return (
     <nav className="nav">
       <div className="logo">

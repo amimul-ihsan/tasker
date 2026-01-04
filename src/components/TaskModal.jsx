@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  useActiveTask,
+  useIsEditing,
+  useTaskHandlers,
+} from "../contexts/taskContext";
 import { randomColor } from "../utils/randomColor";
 
-export default function TaskModal({
-  onClickCancel,
-  activeTask,
-  isEditing,
-  onAddTask,
-  onEditTask,
-}) {
+export default function TaskModal() {
+  const activeTask = useActiveTask();
+  const isEditing = useIsEditing();
+  const { onClickCancel, onAddTask, onEditTask } = useTaskHandlers();
+
   const [task, setTask] = useState(
     () =>
       activeTask ?? {
@@ -19,6 +22,20 @@ export default function TaskModal({
         tags: [],
       }
   );
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTask(
+      activeTask ?? {
+        id: crypto.randomUUID(),
+        title: "",
+        color: randomColor(),
+        fav: false,
+        completed: false,
+        tags: [],
+      }
+    );
+  }, [activeTask]);
 
   const handlers = {
     // title handler

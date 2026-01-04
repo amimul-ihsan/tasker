@@ -1,13 +1,11 @@
 import { CheckCheck, Delete, PencilLine, Star } from "lucide-react";
+import { useTaskHandlers } from "../contexts/taskContext";
 import { taskColors } from "../utils/Colors";
 import Tags from "./Tags";
 
-export default function Task({
-  task,
-  onChangeTask,
-  onDeleteTask,
-  onClickEdit,
-}) {
+export default function Task({ task }) {
+  const { onChangeTask, onDeleteTask, onClickEdit } = useTaskHandlers();
+
   const handlers = {
     // on click fav
     onFav: () => {

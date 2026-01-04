@@ -1,14 +1,10 @@
 import { Plus, Trash2 as Trash } from "lucide-react";
+import { useTaskHandlers } from "../contexts/taskContext";
 import Tasks from "./Tasks";
 
-export default function TaskArea({
-  tasks,
-  onChangeTask,
-  onDeleteTask,
-  onDeleteAllTasks,
-  onClickAdd,
-  onClickEdit,
-}) {
+export default function TaskArea() {
+  const { onDeleteAllTasks, onClickAdd } = useTaskHandlers();
+
   return (
     <section>
       <div className="task-area-buttons">
@@ -23,12 +19,7 @@ export default function TaskArea({
       </div>
 
       <div className="task-area">
-        <Tasks
-          tasks={tasks}
-          onChangeTask={onChangeTask}
-          onDeleteTask={onDeleteTask}
-          onClickEdit={onClickEdit}
-        />
+        <Tasks />
       </div>
     </section>
   );
