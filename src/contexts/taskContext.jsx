@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { tasks as initialTasks } from "../store/store";
 import { randomColor } from "../utils/randomColor";
 
@@ -17,6 +17,10 @@ export default function TaskProvider({ children }) {
   const [prevColor, setPrevColor] = useState();
   const [isEditing, setIsEditing] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const visibleTasks = searchTerm
     ? tasks.filter(
