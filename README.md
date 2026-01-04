@@ -70,15 +70,3 @@ npm run preview
 
 - Search is implemented client-side; clearing the search field shows all tasks by design (filtered view is derived at render time).
 - The project uses a small custom utility for hiding scrollbars (`.no-scrollbar`) in CSS.
-
----
-
-## Contributing
-
-Contributions are welcome — open an issue or submit a PR. Please follow the existing code style and run linter/tests before pushing.
-
----
-
-## License
-
-MIT — see LICENSE (or add one)
