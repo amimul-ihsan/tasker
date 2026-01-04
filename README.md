@@ -1,78 +1,72 @@
-# Tasker — Context API Branch 🧩
+# Tasker 📝
 
-**Branch:** `context-api`
-
-This branch demonstrates using the React Context API (via a `TaskProvider`) to manage and share task state and handlers across the app instead of passing props or relying on isolated local `useState` only.
+**Tasker** is a minimal, responsive task manager built with **React**, **Vite**, and **Tailwind CSS**. It supports adding, editing, deleting, tagging, favoriting tasks and includes a simple search flow.
 
 ---
 
-## Quick commands
+## 🚀 Features
 
-- Dev: `npm run dev`
-- Build: `npm run build`
-- Preview: `npm run preview`
-- Lint: `npm run lint`
-
----
-
-## What changed ✅
-
-- Added `src/contexts/taskContext.jsx` which exposes a `TaskProvider` and several hooks to access state and handlers across components.
-- `src/Tasker.jsx` now wraps the app with `<TaskProvider>` so child components can call the provided hooks.
-- Keeps the same component structure but centralizes task-related logic (search, add/edit/delete, modal visibility, etc.).
+- Add / Edit / Delete tasks
+- Assign colored tags to tasks
+- Favorite and complete tasks
+- Modal-based task creation/editing
+- Instant search by title and tags
+- Tailwind utility classes for quick UI
 
 ---
 
-## Provided Context hooks
+## 🛠️ Built with
 
-Use these hooks anywhere in child components inside `TaskProvider`:
+- React 19
+- Vite
+- Tailwind CSS
+- lucide-react (icons)
 
-- `useTasks()` — returns the list of visible tasks (already filtered by search term)
-- `useShowModal()` — boolean whether the task modal is visible
-- `useActiveTask()` — the currently active task object (for edit/add)
-- `useSearchTerm()` — current search term string
-- `useTaskHandlers()` — object containing handlers:
-  - `onChangeTask(changedTask)`
-  - `onDeleteTask(taskId)`
-  - `onDeleteAllTasks()`
-  - `onClickAdd()`
-  - `onClickEdit(task)`
-  - `onClickCancel()`
-  - `onAddTask(task)`
-  - `onEditTask(editedTask)`
-  - `onSearch(keyword)`
-- `useIsEditing()` — boolean flag indicating if we are editing an existing task
+---
 
-Example usage:
+## Getting started
 
-```jsx
-import { useTasks, useTaskHandlers } from "./contexts/taskContext";
+Prerequisites:
 
-function TaskList() {
-  const tasks = useTasks();
-  const { onDeleteTask } = useTaskHandlers();
-  return (
-    <ul>
-      {tasks.map((t) => (
-        <li key={t.id}>/* ... */</li>
-      ))}
-    </ul>
-  );
-}
+- Node.js 18+ (or LTS)
+
+Install and run locally:
+
+```bash
+npm install
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+npm run preview
 ```
 
 ---
 
-## Notes & migration tips 🔁
+## Usage
 
-- Compared to the `usestate-only` approach, this branch centralizes state so components can read and modify task state without prop drilling.
-- If you want to keep both branches: maintain `README.md` for `usestate-only` and this file for `context-api`, or update the root `README.md` to include branch notes.
+- Click **ADD TASK** to open the task modal and create a new task.
+- Use the **search** field in the navbar to find tasks by title or tag.
+- Click the star to favorite, and buttons on each task to edit/delete/complete.
 
 ---
 
-## Project structure (relevant parts) 🔧
+## Project structure (key files)
 
-- `src/contexts/taskContext.jsx` — provider + hooks
-- `src/Tasker.jsx` — wraps the UI with `TaskProvider`
-- `src/store/store.js` — initial task fixtures used by the provider
-- `src/components/` — UI pieces (Navbar, Modal, TasksArea, TaskModal, etc.)
+- `src/` – application source
+  - `main.jsx` – app bootstrap
+  - `Tasker.jsx` – main app + state & handlers
+  - `components/` – React components (`Task`, `Tasks`, `TaskModal`, `Navbar`, `Modal`, etc.)
+  - `store/store.js` – initial tasks data
+  - `styles/index.css` – Tailwind + custom utilities
+  - `utils/` – helpers (`randomColor`, color maps)
+
+---
+
+## Notes & tips
+
+- Search is implemented client-side; clearing the search field shows all tasks by design (filtered view is derived at render time).
+- The project uses a small custom utility for hiding scrollbars (`.no-scrollbar`) in CSS.
